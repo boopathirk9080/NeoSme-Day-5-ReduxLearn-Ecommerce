@@ -1,0 +1,8 @@
+Redux Toolkit Features
+- Cart functionality: add/remove products
+- Increment/decrement product quantity
+- Data fetched with Axios
+- useState, useEffect, and routing
+- Reducer and useDispatch used
+- Ternary operator applied
+Local Storage is used to save data in the browser

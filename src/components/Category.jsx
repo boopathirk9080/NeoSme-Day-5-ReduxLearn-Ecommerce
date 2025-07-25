@@ -108,7 +108,7 @@ function Category() {
                                     </div>
                                     <div className="p-4">
                                         <div className="mb-3">
-                                            <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 leading-tight">
+                                            <h3 className="text-sm h-[20px] font-semibold text-gray-900 line-clamp-2 leading-tight">
                                                 {products.title}
                                             </h3>
                                             <p className="text-lg font-bold text-blue-600 mt-2">${products.price}</p>
