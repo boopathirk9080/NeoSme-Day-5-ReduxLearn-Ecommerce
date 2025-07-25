@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, Links, useParams } from 'react-router'
+import { Link, Links, Navigate, useNavigate, useParams } from 'react-router'
 import { addItem } from './store/cartSlice'
+import styled from '@emotion/styled'
 
 function ProductDetails() {
 
@@ -39,7 +40,18 @@ function ProductDetails() {
 
 
 
-
+    // changeaTopProduct
+    const navigate = useNavigate()
+    function changeaTopProduct(Product) {
+        setData(Product)
+        navigate(`/details/${encodeURIComponent(Product.id)}`)
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }, 150);
+    }
 
     //add to cart
     const dispatch = useDispatch((state => { return state.cart }))
@@ -54,7 +66,7 @@ function ProductDetails() {
     }
     return (
         <div>
-            <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+            <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased top-0 ">
                 <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
                     <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                         <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
@@ -187,8 +199,9 @@ function ProductDetails() {
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2  lg:grid-cols-4 xl:gap-x-8 p-5  ">
                 {filterdDataa.map((products) => (
                     <div key={products.id} className="group relative z-0 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                        <Link
-                            to={`/details/${encodeURIComponent(products.id)}`}
+                        <div
+                            onClick={() => changeaTopProduct(products)}
+
                             className="block"
                             style={{ textDecoration: 'none', color: 'inherit' }}
                         >
@@ -207,7 +220,7 @@ function ProductDetails() {
                                     <p className="text-lg font-bold text-blue-600 mt-2">${products.price}</p>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                         <div className="flex gap-2 mt-4 px-4 pb-4">
                             <button
                                 className="group z-50 flex-1 flex items-center justify-center bottom-0 py-2 px-3 text-xs font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"

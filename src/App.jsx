@@ -17,7 +17,6 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-
         <NavBar />
         
         <Routes>
