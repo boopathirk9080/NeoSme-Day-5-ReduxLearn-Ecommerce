@@ -3,16 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router'
 import { addItem } from './store/cartSlice'
-import {
-    Card,
-    CardContent,
-    CardMedia,
-    Typography,
-    Button,
-    Grid,
-    Container,
-    CircularProgress
-} from "@mui/material";
+
 
 function Category() {
     const [data, setData] = useState([])
@@ -78,13 +69,13 @@ function Category() {
                     <ul className='mb-4 flex flex-wrap items-center font-semibold text-[#0c1e1d] justify-center'>
                         <button
                             onClick={() => filterASpecificCatagory("All")}
-                            className={`px-2 py-1 mr-2 rounded border-none ${activeCategory === "All" ? "bg-blue-900 text-white" : "bg-gray-300"}`}>
+                            className={`px-2 py-1 mr-2 rounded border-none m-2 ${activeCategory === "All" ? "bg-blue-900 text-white" : "bg-gray-300"}`}>
                             All
                         </button>
                         {filiteredCatagoryHeading.map((category) => (
                             <button
                                 onClick={() => filterASpecificCatagory(category)}
-                                className={`px-2 py-1 mr-2 rounded cursor-pointer border-none ${activeCategory === category ? "bg-blue-900 text-white" : "bg-gray-300"}`}
+                                className={`px-2 py-1 mr-2 rounded cursor-pointer m-2 border-none ${activeCategory === category ? "bg-blue-900 text-white" : "bg-gray-300"}`}
                                 key={category}>
                                 {category}
                             </button>
