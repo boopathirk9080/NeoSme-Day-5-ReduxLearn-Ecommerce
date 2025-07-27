@@ -59,6 +59,7 @@ function ProductDetails() {
     //     dispatch(addItem({ data }))
     // }
 
+    
     const addItemToCart = (item) => {
 
         console.log("Item added to cart:", item)
