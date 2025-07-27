@@ -8,8 +8,6 @@ import Cart from './components/cart/Cart';
 import { Provider } from 'react-redux';
 import { store } from './components/store/store';
 
-
-
 if (!localStorage.getItem("cart")) {
   localStorage.setItem("cart", JSON.stringify([]))
 }
